@@ -234,6 +234,310 @@ The challenge isn’t building intelligence.
 
 It’s measuring it.
 
+🌄 Chapter 11: The Difference Between Exact and Subjective
+
+After understanding why evaluation was hard,
+Aarav discovered something important.
+
+Not all evaluation is the same.
+
+Some judgments are exact.
+
+Some are subjective.
+
+If a multiple-choice question’s answer is A,
+and you choose B,
+you are wrong.
+
+No debate.
+
+But if you write an essay,
+two teachers might give different scores.
+
+And even the same teacher,
+on a different day,
+might score it differently.
+
+Foundation models mostly generate essays,
+not multiple-choice answers.
+
+That changes everything.
+
+---
+
+🌊 Chapter 12: Functional Correctness – The Cleanest Judge
+
+Aarav realized that the cleanest way to judge AI
+was to test whether it actually works.
+
+If you ask AI:
+
+“Write a function to compute gcd(15, 20)”
+
+The correct answer is 5.
+
+You don’t argue.
+You execute the code.
+
+If it returns 5 → correct.
+If not → wrong.
+
+This is called functional correctness.
+
+The system is judged
+by whether it performs its intended function.
+
+Coding platforms like LeetCode
+have done this for years.
+
+Generate code.
+Run test cases.
+If it passes → success.
+
+No subjectivity.
+No opinion.
+
+Just execution.
+
+This is why code generation
+is one of the easiest AI tasks to evaluate.
+
+---
+
+🌤 Chapter 13: The pass@k Trick
+
+But something interesting happens.
+
+When evaluating code models,
+engineers don’t just generate one answer.
+
+They generate multiple samples.
+
+If any one of them works,
+the model “solves” the problem.
+
+This is called pass@k.
+
+If k = 3,
+and 1 out of 3 solutions passes,
+it counts as success.
+
+The more attempts you allow,
+the better the score.
+
+Aarav smiled.
+
+AI isn’t always right on the first try.
+But it can be right if you let it try multiple times.
+
+That’s test-time compute in action.
+
+---
+
+🌪 Chapter 14: When You Can’t Execute the Output
+
+But what about translation?
+
+What about summarization?
+
+You cannot “execute” a summary.
+
+So Aarav discovered another approach.
+
+Compare the output
+to a reference answer.
+
+If the reference says:
+
+“Anne Frank was born in 1929”
+
+and the model says:
+
+“1929”
+
+Exact match.
+
+But if the model says:
+
+“She was born on September 12, 1929”
+
+Now it’s tricky.
+
+The year is correct.
+The full answer is wrong.
+
+Exact matching is brittle.
+
+It works only for short,
+precise answers.
+
+---
+
+🌌 Chapter 15: Measuring Similarity – The Surface Level
+
+So engineers tried something else.
+
+Instead of exact match,
+measure how similar the text looks.
+
+Count overlapping words.
+
+“My cats scare the mice”
+“My cats eat the mice”
+
+Four words overlap.
+80% similarity.
+
+This is lexical similarity.
+
+It measures surface resemblance.
+
+But Aarav noticed something.
+
+Two sentences can look similar
+and mean different things.
+
+“Let’s eat, grandma.”
+“Let’s eat grandma.”
+
+One comma changes everything.
+
+Surface similarity is not meaning.
+
+---
+
+🌙 Chapter 16: Meaning Lives in Embeddings
+
+To measure meaning,
+AI uses embeddings.
+
+An embedding is a vector.
+A list of numbers.
+
+“The cat sits on a mat”
+might become:
+
+[0.11, 0.02, 0.54, …]
+
+Thousands of numbers.
+
+It looks nothing like the sentence.
+
+But in this numerical space,
+meaning becomes geometry.
+
+Similar sentences
+are close together.
+
+Different sentences
+are far apart.
+
+If two embeddings point in similar directions,
+their cosine similarity is high.
+
+1 means identical.
+0 means unrelated.
+–1 means opposite.
+
+Aarav loved this idea.
+
+Meaning,
+converted into math.
+
+---
+
+🌅 Chapter 17: The Embedding World
+
+He learned that:
+
+BERT generates text embeddings.
+CLIP maps images and text into the same space.
+Sentence Transformers specialize in semantic similarity.
+
+In CLIP’s world,
+an image of a fisherman
+and the text “a man fishing”
+live near each other.
+
+Different data.
+Same embedding space.
+
+This allows:
+
+Text-to-image search.
+Image-to-text matching.
+Multimodal reasoning.
+
+Meaning becomes universal.
+
+---
+
+🌠 Chapter 18: The Limits of Similarity
+
+But Aarav also noticed something dangerous.
+
+Similarity metrics can fail.
+
+A correct answer
+can get a low score
+if the reference set is incomplete.
+
+A wrong reference
+can penalize a correct model.
+
+Higher BLEU score
+doesn’t always mean better code.
+
+Similarity is not functionality.
+
+Surface alignment
+is not correctness.
+
+---
+
+🌌 Chapter 19: The Bigger Picture
+
+Now Aarav saw the full landscape.
+
+There are two kinds of exact evaluation:
+
+1. Functional correctness  
+   Does the system actually work?
+
+2. Similarity against references  
+   Does the output resemble known good answers?
+
+Both are powerful.
+Both have limits.
+
+And both become fragile
+as models grow more intelligent.
+
+Evaluation is not one metric.
+
+It is a toolbox.
+
+And choosing the wrong tool
+can mislead you completely.
+
+---
+
+The smarter AI becomes,
+the harder it is to judge.
+
+But the more structured your evaluation,
+the safer your system becomes.
+
+Aarav understood something deeply:
+
+AI doesn’t just need training.
+
+It needs measurement.
+
+And measurement,
+if done poorly,
+can be more dangerous than no measurement at all.
+
 ---
 
 Reference:  
