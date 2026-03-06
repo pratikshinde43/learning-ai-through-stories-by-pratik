@@ -542,5 +542,353 @@ can be more dangerous than no measurement at all.
 
 ---
 
+🌌 Chapter 20: The Day AI Became the Judge
+
+After exploring functional correctness,
+lexical similarity,
+and embeddings,
+
+Aarav faced a new problem.
+
+What if you can’t execute the answer?
+What if references are incomplete?
+What if similarity metrics fail?
+
+He asked himself:
+
+“If AI can write essays…
+can AI also grade them?”
+
+That was the moment he discovered:
+
+AI as a Judge.
+
+---
+
+🌠 Chapter 21: Teaching a Machine to Judge Another Machine
+
+AI as a judge means:
+
+Using one AI model
+to evaluate another AI model.
+
+The model being evaluated generates a response.
+The judge model scores it.
+
+Fast.
+Cheap.
+Scalable.
+
+Before 2020, this idea was theoretical.
+
+But once models like GPT-3 appeared,
+AI became capable of judging text quality.
+
+By 2023,
+most AI startups were using AI judges in production.
+
+Evaluation had become automated.
+
+---
+
+🌊 Chapter 22: Why Not Just Use Humans?
+
+Humans are slow.
+Humans are expensive.
+Humans disagree.
+
+AI judges:
+
+- Work instantly.
+- Scale infinitely.
+- Cost less than human review.
+- Can operate without reference data.
+
+You can ask an AI judge:
+
+- Is this response correct?
+- Is it relevant?
+- Is it toxic?
+- Is it coherent?
+- Is it faithful to the context?
+
+Like asking a teacher to grade homework.
+
+But Aarav remembered something important:
+
+Humans have biases.
+
+And so do AI judges.
+
+---
+
+🌤 Chapter 23: Three Ways to Use an AI Judge
+
+Aarav discovered three common patterns.
+
+1️⃣ Evaluate a single response
+
+“Score this answer from 1 to 5.”
+
+2️⃣ Compare against a reference answer
+
+“Is this generated answer equivalent to the reference?”
+
+3️⃣ Compare two generated responses
+
+“Which answer is better? A or B?”
+
+The third approach fascinated him.
+
+It’s not about correctness.
+It’s about preference.
+
+Which answer would users prefer?
+
+That’s powerful for:
+- Model ranking
+- Alignment
+- Post-training
+- A/B testing
+
+Evaluation became dynamic.
+
+---
+
+🌙 Chapter 24: The Judge Is a System
+
+Aarav made a crucial realization:
+
+An AI judge is not just a model.
+
+It is:
+
+Model + Prompt + Sampling settings.
+
+Change the prompt → new judge.
+Change temperature → new judge.
+Change model → new judge.
+
+There is no “universal judge.”
+
+That’s both powerful and dangerous.
+
+---
+
+🌪 Chapter 25: The Inconsistency Problem
+
+Aarav ran the same evaluation twice.
+
+Different scores.
+
+Same prompt.
+Same input.
+
+Why?
+
+Because AI is probabilistic.
+
+Even judges are probabilistic.
+
+Adding examples in the prompt
+can improve consistency.
+
+But consistency ≠ accuracy.
+
+A judge can consistently make the same mistake.
+
+And adding examples increases cost.
+
+Evaluation itself has trade-offs.
+
+---
+
+🌌 Chapter 26: Criteria Confusion
+
+Aarav noticed something else.
+
+Different tools had a metric called “faithfulness.”
+
+But:
+
+One tool scored 1–5.
+Another scored 0–1.
+Another output YES or NO.
+
+Same word.
+Different meaning.
+
+Scores were not standardized.
+
+If your coherence score goes from 90% to 92%,
+is your system better?
+
+Or did the judge change?
+
+Evaluation drift is real.
+
+A judge changing silently
+can make your metrics meaningless.
+
+Aarav wrote in bold:
+
+Never trust an AI judge
+if you cannot see the model and the prompt.
+
+---
+
+🌅 Chapter 27: The Cost of Judgment
+
+If GPT-4 generates a response,
+and GPT-4 evaluates it,
+you double your API calls.
+
+If you evaluate three criteria:
+
+- Quality
+- Faithfulness
+- Toxicity
+
+You quadruple your cost.
+
+Evaluation can become more expensive
+than generation.
+
+To reduce cost:
+
+- Use weaker models as judges.
+- Evaluate only a sample of responses.
+- Run evaluation asynchronously.
+
+But sampling introduces risk.
+
+The more you evaluate,
+the more confident you are.
+But the more you pay.
+
+Engineering is always about trade-offs.
+
+---
+
+🌠 Chapter 28: The Biases of AI Judges
+
+Aarav studied judge behavior.
+
+He found:
+
+Self-bias  
+Models prefer their own responses.
+
+Position bias  
+Models prefer the first option.
+
+Verbosity bias  
+Models prefer longer answers —
+even if incorrect.
+
+Humans have biases.
+AI has biases.
+
+Different biases.
+
+Knowing them helps you interpret scores.
+
+---
+
+🌊 Chapter 29: Who Should Judge?
+
+There were three possibilities.
+
+1️⃣ A stronger model judges a weaker model.
+
+Logical.
+Like a professor grading students.
+
+2️⃣ A model judges itself.
+
+Self-critique.
+
+Sometimes effective.
+Sometimes biased.
+
+3️⃣ A weaker model judges a stronger one.
+
+Surprisingly possible.
+
+Judging can be easier than generating.
+
+Anyone can critique a song.
+Not everyone can compose one.
+
+---
+
+🌤 Chapter 30: Specialized Judges
+
+Aarav discovered a new idea.
+
+Instead of one giant judge,
+build specialized judges.
+
+Reward models  
+Score (prompt, response) pairs.
+
+Reference-based judges  
+Compare response to reference.
+
+Preference models  
+Predict which response humans prefer.
+
+Smaller.
+Cheaper.
+More focused.
+
+A specialized judge
+might outperform a giant general-purpose judge
+for specific criteria.
+
+---
+
+🌌 Chapter 31: The Final Realization
+
+AI as a judge is powerful.
+
+But it is not perfect.
+
+It is:
+- Flexible
+- Scalable
+- Cost-efficient
+- Useful in production
+
+But also:
+- Probabilistic
+- Biased
+- Non-standardized
+- Expensive at scale
+
+Aarav understood something profound.
+
+Evaluation is not about finding truth.
+
+It is about building confidence.
+
+Confidence through:
+
+- Functional correctness
+- Similarity metrics
+- Embeddings
+- AI judges
+- Human oversight
+
+The smarter AI becomes,
+the harder it is to judge.
+
+And the more critical judgment becomes.
+
+AI can generate intelligence.
+
+But only good evaluation
+can make it trustworthy.
+
 Reference:  
 AI Engineering – Chip Huyen
